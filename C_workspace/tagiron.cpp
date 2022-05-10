@@ -46,6 +46,8 @@ user me;
 /* Function declaration */
 void question_Answer(int num);
 
+
+/* Function implmentation below */
 void SetColor(unsigned short ForeColor = 7, unsigned short BackGroundColor = 0)
 {
     HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -175,47 +177,12 @@ void parseInfo(user *ptr)
 void printFinalNum(user *ptr)
 {
     int i;
-
     for (i = 0; i < 5; i++)
     {
         SetColor(ptr->color[i]);
         cout << ptr->mynumber[i] << " ";
     }
     SetColor();
-    /*
-    if (ptr->bluecount == 0)
-    {
-        cout << " NO BLUE NUMBER ";
-    }
-    else
-    {
-        cout << "Blue Number:";
-        for (i = 0; i < ptr->bluecount; i++)
-            cout << ptr->bluenum[i] << " ";
-    }
-
-    if (ptr->redcount == 0)
-    {
-        cout << " / NO RED NUMBER /";
-    }
-    else
-    {
-        cout << "/ Red Number:";
-        for (i = 0; i < ptr->redcount; i++)
-            cout << ptr->rednum[i] << " ";
-    }
-
-    if (ptr->greencount == 0)
-    {
-        cout << " / NO Green NUMBER /";
-    }
-    else
-    {
-        cout << "/ Green Number:";
-        for (i = 0; i < ptr->greencount; i++)
-            cout << ptr->greennum[i] << " ";
-    }
-    */
 }
 
 void get_randomNum()
@@ -263,26 +230,16 @@ void get_randomNum()
         if (i < 5)
         {
             me.mynumber[i] = randomNumArrayN[i];
-
-            // cout << me.mynumber[i] << "/";
         }
         else if (i < 10)
         {
             Daisy.mynumber[i - 5] = randomNumArrayN[i];
-            // cout << Daisy.mynumber[i-5] << "/";
         }
         else
         {
             Melon.mynumber[i - 10] = randomNumArrayN[i];
-            // cout << Melon.mynumber[i-10] << "/";
         }
     }
-
-    // Melon.mynumber[0] = 2;
-    // Melon.mynumber[1] = 12;
-    // Melon.mynumber[2] = 6;
-    // Melon.mynumber[3] = 16;
-    // Melon.mynumber[4] = 9;
 }
 
 void answer(void)
@@ -297,14 +254,6 @@ void answer(void)
         question_index[i] = questionIdxRandom[i];
     }
     q_Idx = 5;
-    /*
-        for (i = 15; i < 26; i++)
-        {
-            cout << i << "-" << questions[i] << endl;
-            cin >> cond;
-            question_Answer(i);
-        }
-    */
 
     for (;;)
     {
@@ -660,45 +609,14 @@ void question_Answer(int num)
 
 int main()
 {
-    /*
-    for (int i = 1; i < 16; i++)
-    {
-        SetColor(i);
-        cout << "SetColor" << i << endl;
-        SetColor();
-    }
-    */
-
     Question_Init();
     get_randomNum();
-
-    //     Melon.mynumber[0] = 1;
-    //      Melon.mynumber[1] = 2;
-    //    Melon.mynumber[2] = 2;
-    //       Melon.mynumber[3] = 5;
-    //          Melon.mynumber[4] = 6;
-
-    //     Daisy.mynumber[0] = 1;
-    //      Daisy.mynumber[1] = 2;
-    //    Daisy.mynumber[2] = 2;
-    //       Daisy.mynumber[3] = 5;
-    //          Daisy.mynumber[4] = 5;
-
     parseInfo(&me);
     parseInfo(&Daisy);
     parseInfo(&Melon);
-
     printFinalNum(&me);
-
     cout << endl
          << " Start to Play" << endl;
-    /*
-        cout << "Daisy" << endl;
-        printFinalNum(&Daisy);
-        cout << endl
-             << "Melon" << endl;
-        printFinalNum(&Melon);
-    */
     answer();
 
     cout << " Game finish " << endl;
