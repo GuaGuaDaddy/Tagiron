@@ -1,11 +1,13 @@
 #include <iostream>
 #include <ctime>
 #include <stdlib.h>
-// Required for sort function
+// below header file is Required for sort function
 #include <algorithm>
 #include <windows.h>
+
 using namespace std;
 
+// type definition
 struct user
 {
     int rednum[5];
@@ -30,6 +32,7 @@ struct user
     int TotalSum;
 };
 
+/* global variables definition*/
 int question_index[6];
 string questions[26];
 int questionIdxRandom[26];
@@ -40,6 +43,7 @@ user Daisy;
 user Melon;
 user me;
 
+/* Function declaration */
 void question_Answer(int num);
 
 void SetColor(unsigned short ForeColor = 7, unsigned short BackGroundColor = 0)
